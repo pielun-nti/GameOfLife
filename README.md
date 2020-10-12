@@ -1,3 +1,3 @@
-# GameOfLife
+# GameOfLifeOld
 Pierre 
 Filip
