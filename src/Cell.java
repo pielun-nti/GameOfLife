@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Cell implements Rules{
+public class Cell {
     int yPos;
     int xPos;
     boolean isCellAlive;
-    ArrayList neighbors = new ArrayList<Cell>();
+    ArrayList neighbors  = new ArrayList<Cell>();
 
     public Cell(){
 
@@ -24,6 +24,10 @@ public class Cell implements Rules{
 
     public void addNeighbor(Cell cell){
         neighbors.add(cell);
+    }
+
+    public void addNeighbor(int cell){
+
     }
 
     public void removeNeighbor(Cell cell){
@@ -72,15 +76,6 @@ public class Cell implements Rules{
                 '}';
     }
 
-    @Override
-    public boolean isolation(){
-        return true;
-    }
-
-    @Override
-    public boolean bornwhenthreeneighbors() {
-        return true;
-    }
 
 
 }

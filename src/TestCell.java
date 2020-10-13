@@ -1,5 +1,6 @@
 public class TestCell {
     public static void main(String[] args){
+        //Old
         Cell cell1 = new Cell(2, 4);
         System.out.println(cell1.toString());
         Cell cell2 = new Cell();

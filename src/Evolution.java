@@ -25,7 +25,6 @@ import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 public class Evolution extends Canvas implements Runnable {
     int width;
     int height;
-    ArrayList<Cell> cells;
     Grid grid;
     boolean running;
     private Thread thread;
@@ -53,25 +52,13 @@ public class Evolution extends Canvas implements Runnable {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
+        generate();
+        for (int i = 0; i < pixels.length; i++){
+            pixels[i] = 0xFF00FF;
+        }
     }
 
 
-    /**
-     * Custom resize bufferedimage solution
-     * @param image
-     * @param width
-     * @param height
-     * @return
-     */
-    public static BufferedImage resize(BufferedImage image, int width, int height) {
-        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = (Graphics2D) bi.createGraphics();
-        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(image, 0, 0, width, height, null);
-        g2d.dispose();
-        return bi;
-    }
 
 
 
@@ -81,9 +68,11 @@ public class Evolution extends Canvas implements Runnable {
     private void draw() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
-            createBufferStrategy(3);
+            createBufferStrategy(1);
             return;
         }
+
+        updatePixels();
 
         java.awt.Graphics g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
@@ -121,54 +110,54 @@ public class Evolution extends Canvas implements Runnable {
         bs.show();*/
     //}
 
-    private void update() {
-       for (int i = 0; i < grid.getCells().size(); i++){
-           grid.getCells().get(i).addNeighbor();
+    private void updateNeighbours() {
+       for (int i = 0; i < grid.getCells().length; i++){
+           for (int i2 = 0; i2 < grid.getCells().length; i2++) {
+               if (grid.getCells()[i2] != grid.getCells()[i]) {
+                   grid.getCells()[i].addNeighbor(grid.getCells()[i2]);
+               }
+           }
        }
+    }
+
+
+    private void updatePixels(){
+    /*    for (int i = 0; i < grid.getWidth(); i++){
+            for (int i2 = 0; i < grid.getHeight(); i2++){
+                pixels[i2*grid.getWidth()+i] = ((grid.getCellAliveAt(i2,i)?0x000000:0xFFFFFF));
+
+                System.out.println("pixel of cell is: " + grid.getCellAliveAt(i2, i));
+            }
+        }*/
+
+    }
+
+    public void generate(){
+        for (int i = 0; i < grid.getCells().length; i++) {
+            Random rand = new Random();
+            Cell cell = new Cell(rand.nextInt(), rand.nextInt(), Math.random() > 0.5);
+            grid.getCells()[i] = cell;
+            //System.out.println("Added new cell: " + cell.toString());
+        }
+        System.out.println("Generated cells");
     }
 
 
     @Override
     public void run () {
-
+        long startTime = System.nanoTime();
         while (running) {
-            long now = System.nanoTime();
-            Random rand = new Random();
-            Cell cell = new Cell(rand.nextInt(), rand.nextInt());
-            Cell neighbor = new Cell(rand.nextInt(), rand.nextInt());
-            cell.addNeighbor(neighbor);
-            if (Math.random() < 0.5){
-                Cell neighbor2 = new Cell(rand.nextInt(), rand.nextInt());
-                Cell neighbor3 = new Cell(rand.nextInt(), rand.nextInt());
-                cell.addNeighbor(neighbor2);
-                cell.addNeighbor(neighbor3);
+            long lastUpdate = ((startTime - System.nanoTime()) / 1000000000) * (-1);
+                if (lastUpdate > 1) {
+                    //draw();
+                    long timenow = ((startTime - System.nanoTime()) / 1000000000) * (-1);
+                    frame.setTitle("GameOfLife " + timenow + " seconds running");
+                    //updateNeighbours();
+                    System.out.println("last update");
             }
-            grid.getCells().add(cell);
-            cells = grid.getCells();
-
-            for (int i = 0; i < cells.size(); i++){
-                if (cells.get(i).getNeighbors().size() < 2){
-                    if (cells.get(i).getCellAlive()) {
-                        cells.get(i).setCellAlive(false);
-                        //System.out.println("killed cell because cell < 2" + cells.get(i).toString());
-                    }
-                } else if (cells.get(i).getNeighbors().size() == 3){
-                    if (!cells.get(i).getCellAlive()) {
-                        cells.get(i).setCellAlive(true);
-                        //System.out.println("cell is alive: " + cells.get(i).toString());
-                    }
-                }else{
-                    if (cells.get(i).getCellAlive()) {
-                        cells.get(i).setCellAlive(false);
-                        //System.out.println("killed cell because size > 3" + cells.get(i).toString());
-                    }
-                }
-                update();
-                draw();
             }
 
             //stop();
         }
     }
 
-}
