@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="26913234-2e20-46b1-84b7-83122907d817" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameOfLife/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/Evolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameOfLife/Evolution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/EvolutionOld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameOfLife/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/TestGrid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameOfLife/TestGrid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Evolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Evolution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvolutionOld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameOfLifeOld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rules.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestGrid.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,13 +25,14 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Code\PRG2\GameOfLife" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Code\PRG2\GameOfLife" />
       <recent name="C:\Code\PRG2\GameOfLife\src" />
     </key>
   </component>
