@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26913234-2e20-46b1-84b7-83122907d817" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PORT_MORTEM.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/Evolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameOfLife/Evolution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/GameOfLifeOld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/Rules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/TestCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameOfLife/TestCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameOfLife/TestGrid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Evolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Evolution.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -54,7 +54,7 @@ public class Evolution extends Canvas implements Runnable {
         frame.setVisible(true);
         generate();
         for (int i = 0; i < pixels.length; i++){
-            pixels[i] = 0xFF00FF;
+            pixels[i] = 0xF421da;
         }
     }
 
@@ -68,11 +68,9 @@ public class Evolution extends Canvas implements Runnable {
     private void draw() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
-            createBufferStrategy(1);
+            createBufferStrategy(3);
             return;
         }
-
-        updatePixels();
 
         java.awt.Graphics g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
@@ -122,13 +120,13 @@ public class Evolution extends Canvas implements Runnable {
 
 
     private void updatePixels(){
-    /*    for (int i = 0; i < grid.getWidth(); i++){
+        for (int i = 0; i < grid.getWidth(); i++){
             for (int i2 = 0; i < grid.getHeight(); i2++){
                 pixels[i2*grid.getWidth()+i] = ((grid.getCellAliveAt(i2,i)?0x000000:0xFFFFFF));
 
                 System.out.println("pixel of cell is: " + grid.getCellAliveAt(i2, i));
             }
-        }*/
+        }
 
     }
 
@@ -143,21 +141,62 @@ public class Evolution extends Canvas implements Runnable {
     }
 
 
-    @Override
+    /*@Override
     public void run () {
         long startTime = System.nanoTime();
         while (running) {
             long lastUpdate = ((startTime - System.nanoTime()) / 1000000000) * (-1);
                 if (lastUpdate > 1) {
-                    //draw();
+                    draw();
                     long timenow = ((startTime - System.nanoTime()) / 1000000000) * (-1);
                     frame.setTitle("GameOfLife " + timenow + " seconds running");
                     //updateNeighbours();
-                    System.out.println("last update");
+                    //System.out.println("last update");
             }
             }
 
             //stop();
+        }*/
+
+    @Override
+    public void run() {
+        double frameUpdateinteval = 1000000000.0 / 60;
+        double stateUpdateinteval = 1000000000.0 / 60;
+        double deltaFrame = 0;
+        double deltaUpdate = 0;
+        long lastTime = System.nanoTime();
+
+        while (running) {
+            long now = System.nanoTime();
+            deltaFrame += (now - lastTime) / frameUpdateinteval;
+            deltaUpdate += (now - lastTime) / stateUpdateinteval;
+            lastTime = now;
+
+            while (deltaUpdate >= 1) {
+                update();
+                deltaUpdate--;
+            }
+
+            while (deltaFrame >= 1) {
+                draw();
+                deltaFrame--;
+            }
+        }
+        //stop();
+    }
+    private void update() {
+        for (int y = 0 ; y < grid.getHeight() ; y++) {
+            for (int x = 0; x < grid.getWidth(); x++) {
+                pixels[y*grid.getWidth()+x] = ((grid.getCellAliveAt(x,y)?0x000000:0xFFFFFF));
+                System.out.println(x + " a " + y);
+            }
         }
     }
+
+
+
+
+    }
+
+
 
