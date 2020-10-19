@@ -18,7 +18,8 @@ Java kod och med tiden så ändrade jag en del i klassdiagrammet.
 
 # 1.3 Bakgrund
 Jag har använt en dator med IntelliJ IDEA där jag skrev koden
-och draw.io för klassdiagram och Wikipedia för information om GameOfLife.
+och draw.io för klassdiagram och Wikipedia för information om
+GameOfLife.
 
 
 # 1.4 Positiva erfarenheter
@@ -29,7 +30,7 @@ jag inte att det var jätte svårt men inte jätte lätt heller.
 Att programmera var dock inget nytt för mig så det känner
 jag mig säker på oftast, bara jag vet ungefär vad programmet
 ska göra. Jag har hållt på med objektorienterad
-programmering hemma till exempel så har jag använt
+programmering hemma under en lång tid till exempel så har jag använt
 controllers models views modellen både i vissa java program
 som jag gjort men ännu mer i webbserverprogrammering.
 
