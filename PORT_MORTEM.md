@@ -57,4 +57,5 @@ så är jag säker på att jag fått till det tillslut själv.
 Jag gjorde egentligen hela uppgiften själv utan klasskompis,
 men Filip var med och satt bredvid på lektionerna så han
 var närvarande. I framtiden i kursen gör jag gärna fler 
-enskilda större projekt där man får jobba själv och skriva kod.
+enskilda större projekt där man får jobba själv
+och skriva kod.
